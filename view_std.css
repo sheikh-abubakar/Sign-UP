@@ -1,0 +1,59 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f5fa;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #4b0082; /* Deep Purple */
+    margin-bottom: 20px;
+}
+
+.table-container {
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4b0082; /* Deep Purple */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e0d4f7; /* Light purple hover */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .table-container {
+        padding: 15px;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+}

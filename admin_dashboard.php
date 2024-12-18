@@ -25,15 +25,15 @@ $username = $_SESSION['username'];
     <main>
         <div class="link-section">
             <div class="column">
-                <a href="add_class.php" class="dashboard-link">Add a Class</a>
-                <a href="view_classes.php" class="dashboard-link">View Classes</a>
-                <a href="edit_class.php" class="dashboard-link">Edit a Class</a>
-                <a href="delete_class.php" class="dashboard-link">Delete a Class</a>
+                <a href="create_class.html" class="dashboard-link">Add a Class</a>
+                <a href="add_course.html" class="dashboard-link">Add Course</a>
+                <a href="schedule_class_session.html" class="dashboard-link">schedule the Class</a>
+                <a href="Class_Report.php" class="dashboard-link">Class Report</a>
             </div>
             <div class="column">
-                <a href="add_student.php" class="dashboard-link">Add a Student</a>
+                <a href="add_student.html" class="dashboard-link">Add a Student</a>
                 <a href="view_students.php" class="dashboard-link">View Students</a>
-                <a href="edit_student.php" class="dashboard-link">Edit a Student</a>
+                <a href="Attendance_Shortage_List.php" class="dashboard-link">View Attendance Shortage List</a>
                 <a href="delete_student.php" class="dashboard-link">Delete a Student</a> 
             </div>
         </div>

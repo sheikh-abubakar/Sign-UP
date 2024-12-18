@@ -1,0 +1,95 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f5f9;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Form Container */
+.form-container {
+    width: 90%;
+    max-width: 500px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #6a0dad; /* Purple Accent */
+    text-align: center;
+}
+
+.form-container h1 {
+    color: #6a0dad; /* Purple Heading */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Form Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+    border-color: #6a0dad; /* Purple Highlight */
+    outline: none;
+    box-shadow: 0 0 5px rgba(106, 13, 173, 0.3);
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background-color: #6a0dad; /* Purple Button */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #4b0c8f; /* Darker Purple */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
