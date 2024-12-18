@@ -1,0 +1,92 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fc;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Class Details Container */
+.class-details-container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+}
+
+.class-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.class-header h2 {
+    color: #6a0dad;
+    font-size: 1.8rem;
+}
+
+.grade-btn {
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.grade-btn:hover {
+    background-color: #4b0c8f;
+}
+
+/* Class Information */
+.class-info p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.class-info strong {
+    color: #6a0dad;
+}
+
+/* Student Table */
+.students-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.students-table th,
+.students-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.students-table th {
+    background-color: #6a0dad;
+    color: #fff;
+}
+
+.students-table tr:nth-child(even) {
+    background-color: #f4f4f9;
+}
+
+.students-table tr:hover {
+    background-color: #e8e5f3;
+}

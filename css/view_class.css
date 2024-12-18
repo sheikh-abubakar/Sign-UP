@@ -1,0 +1,78 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f9f9fb;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Classes List Container */
+.classes_list {
+    width: 90%;
+    max-width: 1000px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.classes_list h3 {
+    color: #6a0dad;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* Table Styling */
+.tab_one {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.tab_one th,
+.tab_one td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    color: #333;
+}
+
+.tab_one th {
+    background-color: #6a0dad;
+    color: white;
+    font-weight: bold;
+}
+
+.tab_one tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.tab_one tr:hover {
+    background-color: #e8e5f3;
+}
+
+/* Action Links */
+.tab_one a {
+    color: #6a0dad;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.tab_one a:hover {
+    color: #4b0c8f;
+    text-decoration: underline;
+}

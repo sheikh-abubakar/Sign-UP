@@ -1,0 +1,90 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f5f9;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.grade-container {
+    width: 90%;
+    max-width: 1000px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grade-container h2 {
+    color: #6a0dad;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Grades Table */
+.grades-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.grades-table th,
+.grades-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.grades-table th {
+    background-color: #6a0dad;
+    color: white;
+    font-weight: bold;
+}
+
+.grades-table tr:nth-child(even) {
+    background-color: #f4f4f9;
+}
+
+.grades-table tr:hover {
+    background-color: #e8e5f3;
+}
+
+/* Update Grade Form */
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 60px;
+    text-align: center;
+}
+
+button[type="submit"] {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #4b0c8f;
+}
