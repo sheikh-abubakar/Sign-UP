@@ -27,15 +27,15 @@ $username = $_SESSION['username'];
             <div class="column">
                 <a href="view_classes.php" class="dashboard-link">View Classes</a>
                 <a href="transcript.php" class="dashboard-link">Transcript </a>
-                <a href="schedule_class_session.html" class="dashboard-link">schedule the Class</a>
-                <a href="Class_Report.php" class="dashboard-link">Class Report</a>
+                <!-- <a href="schedule_class_session.html" class="dashboard-link">schedule the Class</a>
+                <a href="Class_Report.php" class="dashboard-link">Class Report</a> -->
             </div>
-            <div class="column">
+            <!-- <div class="column">
                 <a href="add_student.html" class="dashboard-link">Add a Student</a>
                 <a href="view_students.php" class="dashboard-link">View Students</a>
                 <a href="Attendance_Shortage_List.php" class="dashboard-link">View Attendance Shortage List</a>
                 <a href="delete_student.php" class="dashboard-link">Delete a Student</a> 
-            </div>
+            </div> -->
         </div>
     </main>
 </body>

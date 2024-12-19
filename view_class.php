@@ -3,8 +3,8 @@ session_start();
 require "connect.php"; // Include your database configuration
 
 // Check if faculty session exists
-if (!isset($_SESSION['f_id'])) {
-    header('Location: login.php');
+if ($_SESSION['role'] != 'professor') {
+    header('Location: login.html');
     exit();
 }
 

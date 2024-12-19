@@ -3,8 +3,8 @@ session_start();
 include "connect.php"; // Database connection file
 
 // Check if professor is logged in
-if (!isset($_SESSION['f_id'])) {
-    header('Location: login.php');
+if ($_SESSION['role'] != 'professor') {
+    header('Location: login.html');
     exit();
 }
 

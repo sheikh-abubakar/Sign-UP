@@ -6,6 +6,9 @@ if ($_SESSION['role'] != 'student') {
 }
 
 include 'connect.php';
+require 'dompdf/autoload.inc.php'; // DOMPDF autoload
+
+use Dompdf\Dompdf;
 
 $stu_id = $_SESSION['username'];  // Use stu_id instead of username
 
@@ -122,6 +125,12 @@ $stmt->close();
                 </tbody>
             </table>
         </div>
+        <!-- Download Transcript button with rounded corners and purple color -->
+        <form action="download_transcript.php" method="POST">
+            <button type="submit" style="background-color: purple; color: white; padding: 10px 20px; border-radius: 12px; border: none; cursor: pointer;">
+                Download Transcript
+            </button>
+        </form>
     </main>
 </body>
 </html>
