@@ -8,8 +8,8 @@ if ($_SESSION['role'] != 'professor') {
     exit();
 }
 
-$fid = $_SESSION['f_id']; // Get the professor ID from session
-$funame = $_SESSION['f_uname']; // Professor username
+$fid = $_SESSION['username']; // Get the professor ID from session
+$funame = $_SESSION['username']; // Professor username
 $pageTitle = "View Classes";
 
 ?>

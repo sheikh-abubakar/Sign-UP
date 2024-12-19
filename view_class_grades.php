@@ -3,12 +3,12 @@ session_start();
 require "connect.php"; // Include the proper configuration file
 
 // Ensure professor is logged in
-if (!isset($_SESSION['f_id'])) {
-    header('Location: login.php');
+if ($_SESSION['role'] != 'professor') {
+    header('Location: login.html');
     exit();
 }
 
-$fid = $_SESSION['f_id'];
+$fid = $_SESSION['username'];
 $class_code = $_GET['class_code']; // Get class code from URL
 
 // Fetch class details using prepared statements
