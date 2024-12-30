@@ -46,10 +46,56 @@ $student_result = $stmt->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Class Grades</title>
     <link rel="stylesheet" href="css/view_class_grades.css">
+    <style>
+        /* Style for the Back to Profile button */
+        .back-to-profile {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #6a0dad; /* Purple color for your theme */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Success message styling */
+        .success-message {
+            font-size: 18px;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #6a0dad; /* Purple theme */
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            max-width: 50%;
+            position: fixed;
+            top: 10px; /* Stick to the top */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for centering */
+            z-index: 1000; /* Ensure it stays on top */
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .success-message.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body>
 
+<!-- Display success message at the top -->
+<?php if (isset($_GET['status']) && $_GET['status'] == 'success') { ?>
+    <p class="success-message">Grade updated successfully!</p>
+<?php } ?>
+
 <div class="grade-container">
+
     <h2>Class Grades for <?php echo htmlspecialchars($class_code); ?></h2>
 
     <table class="grades-table">
@@ -86,7 +132,19 @@ $student_result = $stmt->get_result();
         ?>
         </tbody>
     </table>
+
+    <a href="professor_dashboard.php" class="back-to-profile">Back to Profile</a>
 </div>
+
+<script>
+    // Automatically hide the success message after 3 seconds
+    setTimeout(function () {
+        const successMessage = document.querySelector('.success-message');
+        if (successMessage) {
+            successMessage.classList.add('hidden');
+        }
+    }, 3000); // 3 seconds
+</script>
 
 </body>
 </html>

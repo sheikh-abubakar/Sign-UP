@@ -206,6 +206,7 @@ if (isset($_GET['class_code'])) {
                     </tbody>
                 </table>
                 <button type="submit">Submit Attendance</button>
+                <button><a href="professor_dashboard.php"> Back to Profile</a></button>
             </form>
         <?php endif; ?>
     </div>

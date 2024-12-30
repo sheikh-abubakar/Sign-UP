@@ -26,9 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sss", $new_grade, $stu_id, $class_code);
     
     if ($stmt->execute()) {
-        // Redirect back to the view grade page or show a success message
-        echo "Grade updated successfully!";
-        header("Location: view_class_grades.php?class_code=" . $class_code); // Redirect back to class grades view page
+        // Redirect back to the view grade page with a success message
+        header("Location: view_class_grades.php?class_code=" . $class_code . "&status=success");
+        exit();
     } else {
         echo "Error updating grade: " . $stmt->error;
     }
