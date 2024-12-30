@@ -1,5 +1,5 @@
 <?php
-include 'config1.php'; // Include the database connection
+include 'connect.php'; // Include the database connection
 
 // Retrieve form data
 $crs_code = $_POST['crs_code'];
