@@ -2,12 +2,12 @@
 session_start();
 include "connect.php"; // Database connection file
 
-if (!isset($_SESSION['f_id'])) {
+if (!isset($_SESSION['username'])) {
     header('Location: login.php');
     exit();
 }
 
-$prof_id = $_SESSION['f_id'];
+$prof_id = $_SESSION['username'];
 
 // Fetch classes taught by the professor
 $query_classes = "SELECT distinct c.CLASS_CODE, cr.CRS_TITLE 

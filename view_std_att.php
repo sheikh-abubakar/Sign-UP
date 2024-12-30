@@ -8,7 +8,7 @@ if ($_SESSION['role'] != 'professor') {
     exit();
 }
 
-$prof_id = $_SESSION['f_id']; // Logged-in professor's ID
+$prof_id = $_SESSION['username']; // Logged-in professor's ID
 $selected_class = isset($_GET['class_code']) ? $_GET['class_code'] : null;
 $date_filter = isset($_GET['att_date']) ? $_GET['att_date'] : date('Y-m-d'); // Default to today's date
 
