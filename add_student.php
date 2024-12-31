@@ -18,6 +18,8 @@ $dept_code = $_POST['dept_code'];
 $password = $_POST['password'];
 $img = $_FILES['img']['tmp_name'];
 
+
+
 // Check if the username (email) already exists
 $stmt = $conn->prepare("SELECT * FROM PERSON WHERE EMAIL = ?");
 $stmt->bind_param("s", $email);

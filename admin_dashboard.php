@@ -41,7 +41,7 @@ $username = $_SESSION['username'];
                 <a href="add_student.html" class="dashboard-link">Add a Student</a>
                 <a href="view_students.php" class="dashboard-link">View Students</a>
                 <a href="Attendance_Shortage_List.php" class="dashboard-link">View Attendance Shortage List</a>
-                <!-- <a href="delete_student.php" class="dashboard-link">Delete a Student</a>  -->
+                <a href="delete_student.php" class="dashboard-link">Delete a Student</a> 
             </div>
         </div>
     </main>
