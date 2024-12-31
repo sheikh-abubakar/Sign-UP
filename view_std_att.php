@@ -55,11 +55,19 @@ if ($selected_class) {
 
     <!-- Flatpickr CSS for Calendar -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- Favicon links -->
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicons/favicon.svg" />
+    <link rel="shortcut icon" href="favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="CMS" />
+    <link rel="manifest" href="favicons/site.webmanifest" />
     <style>
         /* Basic Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
+            background-color: #0b1a4e;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
             margin: 0;
             padding: 0;
         }

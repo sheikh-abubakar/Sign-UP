@@ -7,7 +7,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f5fa; /* Light purple background */
+    background-color: #0b1a4e;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);a
     color: #333;
     padding: 20px;
 }

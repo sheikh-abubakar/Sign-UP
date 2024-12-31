@@ -53,9 +53,18 @@ $result = $conn->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Performance Summary</title>
+    <!-- Favicon links -->
+    <link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicons/favicon.svg" />
+    <link rel="shortcut icon" href="favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="CMS" />
+    <link rel="manifest" href="favicons/site.webmanifest" />
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #0b1a4e;
+             background: linear-gradient(to right, #e2e2e2, #c9d6ff);
         }
         table {
             width: 100%;
