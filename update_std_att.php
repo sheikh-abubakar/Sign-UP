@@ -27,43 +27,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $class_date = $_POST['class_date'];
     $attendance_data = $_POST['attendance'];
 
-    // Insert or update attendance
-    foreach ($attendance_data as $stu_id => $status) {
-        $check_query = "SELECT ad.ATTENDANCE_ID FROM ATTENDANCE a
-                        JOIN ATTENDANCE_details ad ON a.ATTENDANCE_ID = ad.ATTENDANCE_ID
-                        WHERE a.CLASS_CODE = ? AND a.CLASS_DATE = ? AND ad.STU_ID = ?";
-        $stmt_check = $conn->prepare($check_query);
-        $stmt_check->bind_param("sss", $class_code, $class_date, $stu_id);
-        $stmt_check->execute();
-        $stmt_check->store_result();
+    try {
+        foreach ($attendance_data as $stu_id => $status) {
+            $check_query = "SELECT ad.ATTENDANCE_ID FROM ATTENDANCE a
+                            JOIN ATTENDANCE_details ad ON a.ATTENDANCE_ID = ad.ATTENDANCE_ID
+                            WHERE a.CLASS_CODE = ? AND a.CLASS_DATE = ? AND ad.STU_ID = ?";
+            $stmt_check = $conn->prepare($check_query);
+            $stmt_check->bind_param("sss", $class_code, $class_date, $stu_id);
+            $stmt_check->execute();
+            $stmt_check->store_result();
 
-        if ($stmt_check->num_rows > 0) {
-            $update_query = "UPDATE ATTENDANCE_details ad
-                             JOIN ATTENDANCE a ON ad.ATTENDANCE_ID = a.ATTENDANCE_ID
-                             SET ad.STATUS = ?
-                             WHERE a.CLASS_CODE = ? AND a.CLASS_DATE = ? AND ad.STU_ID = ?";
-            $stmt_update = $conn->prepare($update_query);
-            $stmt_update->bind_param("ssss", $status, $class_code, $class_date, $stu_id);
-            $stmt_update->execute();
-            $stmt_update->close();
-        } else {
-            $insert_query_att = "INSERT INTO ATTENDANCE(CLASS_CODE, CLASS_DATE) VALUES (?, ?)";
-            $stmt_insert_att = $conn->prepare($insert_query_att);
-            $stmt_insert_att->bind_param("ss", $class_code, $class_date);
-            $stmt_insert_att->execute();
-            $attendance_id = $conn->insert_id;
+            if ($stmt_check->num_rows > 0) {
+                $update_query = "UPDATE ATTENDANCE_details ad
+                                 JOIN ATTENDANCE a ON ad.ATTENDANCE_ID = a.ATTENDANCE_ID
+                                 SET ad.STATUS = ?
+                                 WHERE a.CLASS_CODE = ? AND a.CLASS_DATE = ? AND ad.STU_ID = ?";
+                $stmt_update = $conn->prepare($update_query);
+                $stmt_update->bind_param("ssss", $status, $class_code, $class_date, $stu_id);
+                $stmt_update->execute();
+                $stmt_update->close();
+            } else {
+                $insert_query_att = "INSERT INTO ATTENDANCE(CLASS_CODE, CLASS_DATE) VALUES (?, ?)";
+                $stmt_insert_att = $conn->prepare($insert_query_att);
+                $stmt_insert_att->bind_param("ss", $class_code, $class_date);
+                $stmt_insert_att->execute();
+                $attendance_id = $conn->insert_id;
 
-            $insert_query_det = "INSERT INTO ATTENDANCE_details (ATTENDANCE_ID, STU_ID, STATUS) VALUES (?, ?, ?)";
-            $stmt_insert_det = $conn->prepare($insert_query_det);
-            $stmt_insert_det->bind_param("iss", $attendance_id, $stu_id, $status);
-            $stmt_insert_det->execute();
-            $stmt_insert_det->close();
-            $stmt_insert_att->close();
+                $insert_query_det = "INSERT INTO ATTENDANCE_details (ATTENDANCE_ID, STU_ID, STATUS) VALUES (?, ?, ?)";
+                $stmt_insert_det = $conn->prepare($insert_query_det);
+                $stmt_insert_det->bind_param("iss", $attendance_id, $stu_id, $status);
+                $stmt_insert_det->execute();
+                $stmt_insert_det->close();
+                $stmt_insert_att->close();
+            }
+            $stmt_check->close();
         }
-        $stmt_check->close();
-    }
 
-    echo "<p class='success'>Attendance updated successfully!</p>";
+        echo "<p class='success'>Attendance updated successfully!</p>";
+    } catch (mysqli_sql_exception $e) {
+        if (strpos($e->getMessage(), 'Duplicate entry') !== false) {
+            echo "<p class='error'>Attendance already exists for this student on this date. Please update instead.</p>";
+        } else {
+            echo "<p class='error'>An unexpected error occurred: " . htmlspecialchars($e->getMessage()) . "</p>";
+        }
+    }
 }
 
 // Fetch students for the selected class
@@ -150,6 +157,11 @@ if (isset($_GET['class_code'])) {
             color: green;
             font-weight: bold;
         }
+        .error {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
         .form-section {
             margin-bottom: 20px;
         }
@@ -160,14 +172,12 @@ if (isset($_GET['class_code'])) {
         <h2>Update Attendance</h2>
 
         <div class="form-section">
-            <!-- Class Selection Form -->
             <form method="GET" action="">
                 <label for="class_code">Select Class:</label>
                 <select name="class_code" id="class_code" required>
                     <option value="">-- Select Class --</option>
                     <?php foreach ($classes as $class): ?>
-                        <option value="<?= $class['CLASS_CODE']; ?>"
-                            <?= (isset($selected_class) && $selected_class == $class['CLASS_CODE']) ? 'selected' : ''; ?>>
+                        <option value="<?= $class['CLASS_CODE']; ?>" <?= (isset($selected_class) && $selected_class == $class['CLASS_CODE']) ? 'selected' : ''; ?>>
                             <?= $class['CRS_TITLE']; ?>
                         </option>
                     <?php endforeach; ?>
@@ -177,7 +187,6 @@ if (isset($_GET['class_code'])) {
         </div>
 
         <?php if (!empty($students)): ?>
-            <!-- Attendance Form -->
             <form method="POST" action="">
                 <input type="hidden" name="class_code" value="<?= $selected_class; ?>">
                 <label for="class_date">Date:</label>
@@ -206,7 +215,7 @@ if (isset($_GET['class_code'])) {
                     </tbody>
                 </table>
                 <button type="submit">Submit Attendance</button>
-                <button><a href="professor_dashboard.php"> Back to Profile</a></button>
+                <button><a href="professor_dashboard.php">Back to Profile</a></button>
             </form>
         <?php endif; ?>
     </div>
